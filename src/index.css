@@ -31,3 +31,28 @@ body{
    text-align: center;
    margin: auto;
  }
+ .card{
+   margin: auto;
+ }
+
+ .name{
+  font-weight: bolder;
+  font-size: 1.5em;
+  margin:  -15px 0px;
+ }
+ .lon{
+  font-size: 1.5em;
+  margin:  -15px 0px;
+ }
+ .lat{
+  font-size: 1.5em;
+  margin:  -15px 0px;
+ }
+
+
+ 
+ .error{
+  font-weight: bolder;
+  font-size: 2em;
+  color: rgb(190, 17, 17);
+ }
