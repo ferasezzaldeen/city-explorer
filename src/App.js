@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './component/Header';
+import Weather from './component/Weather';
 import Forms from './component/Forms';
 import Card from 'react-bootstrap/Card'
 class App extends React.Component {
@@ -12,7 +13,9 @@ class App extends React.Component {
       locData: '',
       errorMsg: '',
       displayErrMsg: false,
-      displayMap: false
+      displayMap: false,
+      city:'',
+      weatherData: [],
     }
 
 
@@ -31,6 +34,7 @@ class App extends React.Component {
       this.setState({
         locData: result.data[0],
         displayErrMsg: false,
+        city: cityName,
       })
       this.getMap();
     }
@@ -40,9 +44,10 @@ class App extends React.Component {
         displayErrMsg: true,
         displayMap: false,
         locData: '',
+      
       })
     }
-
+    this.getWeather();
   }
 
 
@@ -56,6 +61,25 @@ class App extends React.Component {
 
 
   }
+
+
+
+  getWeather= async()=>{
+
+    let wethURL= process.env.REACT_APP_SERVER;
+    const url=`${wethURL}weather?lat=${this.state.locData.lat}&lon=${this.state.locData.lon}&searchQuery=${this.state.city}`;
+    let weather=await axios.get(url);
+    console.log(weather);
+    this.setState({
+
+      weatherData: weather.data[0],
+    })
+   console.log(this.state.weatherData)
+  }
+
+
+
+
 
 
 
@@ -82,6 +106,7 @@ class App extends React.Component {
 
           </Card.Body>
         </Card>
+        <Weather weatherData={this.state.weatherData} />
 
 
         {/* <p>{this.state.locData.display_name}</p>
