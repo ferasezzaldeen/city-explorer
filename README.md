@@ -123,7 +123,6 @@ buld api for cities weather
 only write the city name and then submit 
 ## Architecture
 <!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
-I used node.js, react.js,js,express library and more 
 
 ## Change Log
 <!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
@@ -142,3 +141,44 @@ Start time: 2 pm
 Finish time: 2pm
 
 Actual time needed to complete: 12 yours
+
+
+I used node.js, react.js,js,express library and more 
+
+
+
+
+city explorer
+**Author**: feras
+**Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
+
+## Overview
+build website to inter city name as input and tp reseve information about weather,location and movies about the city
+
+## Getting Started
+only write the city name and then submit 
+## Architecture
+<!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
+
+## Change Log
+<!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
+
+01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
+
+## Credit and Collaborations
+google and the TAs
+
+
+
+Name of feature: lab09
+
+Estimate of time needed to complete: 30 min 
+Start time: 2 pm
+
+Finish time: 2:30pm
+
+Actual time needed to complete: 30 min 
+
+
+I used node.js, react.js,js,express library and more 
+
