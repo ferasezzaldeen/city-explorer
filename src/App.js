@@ -4,7 +4,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './component/Header';
 import Weather from './component/Weather';
 import Forms from './component/Forms';
+import Movies from './component/Movies';
 import Card from 'react-bootstrap/Card'
+
 class App extends React.Component {
 
   constructor(props) {
@@ -16,6 +18,7 @@ class App extends React.Component {
       displayMap: false,
       city:'',
       weatherData: [],
+      movieData:[],
     }
 
 
@@ -48,6 +51,7 @@ class App extends React.Component {
       })
     }
     this.getWeather();
+    this.getMovie();
   }
 
 
@@ -67,7 +71,9 @@ class App extends React.Component {
   getWeather= async()=>{
 
     let wethURL= process.env.REACT_APP_SERVER;
-    const url=`${wethURL}/weather?lat=${this.state.locData.lat}&lon=${this.state.locData.lon}&searchQuery=${this.state.city}`;
+    let url=`${wethURL}/weather?lat=${this.state.locData.lat}&lon=${this.state.locData.lon}&searchQuery=${this.state.city}`;
+    // let url=`http://localhost:1996/weather?lat=${this.state.locData.lat}&lon=${this.state.locData.lon}&searchQuery=${this.state.city}`;
+
     let weather=await axios.get(url);
     console.log(weather);
     this.setState({
@@ -77,7 +83,19 @@ class App extends React.Component {
    console.log(this.state.weatherData)
   }
 
+  getMovie= async()=>{
+    let movURL=process.env.REACT_APP_SERVER;
+    let url=`${movURL}/movies?searchQuery=${this.state.city}`
+    // let url=`http://localhost:1996/movies?searchQuery=${this.state.city}`
 
+    let movies=await axios.get(url);
+    console.log(movies);
+    this.setState({
+      movieData: movies.data[0],
+
+    })
+    console.log(this.state.movieData)
+  }
 
 
 
@@ -106,8 +124,8 @@ class App extends React.Component {
 
           </Card.Body>
         </Card>
-        <Weather weatherData={this.state.weatherData} />
-
+        <Weather weatherData={this.state.weatherData} displayMap={this.state.displayMap} />
+        <Movies movieData={this.state.movieData}  />
 
         {/* <p>{this.state.locData.display_name}</p>
         <p>{this.state.locData.lon}</p>
