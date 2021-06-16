@@ -71,8 +71,8 @@ class App extends React.Component {
   getWeather= async()=>{
 
     let wethURL= process.env.REACT_APP_SERVER;
-    let url=`${wethURL}/weather?lat=${this.state.locData.lat}&lon=${this.state.locData.lon}&searchQuery=${this.state.city}`;
-    // let url=`http://localhost:1996/weather?lat=${this.state.locData.lat}&lon=${this.state.locData.lon}&searchQuery=${this.state.city}`;
+    // let url=`${wethURL}/weather?lat=${this.state.locData.lat}&lon=${this.state.locData.lon}&searchQuery=${this.state.city}`;
+    let url=`http://localhost:1996/weather?lat=${this.state.locData.lat}&lon=${this.state.locData.lon}&searchQuery=${this.state.city}`;
 
     let weather=await axios.get(url);
     console.log(weather);
@@ -85,8 +85,8 @@ class App extends React.Component {
 
   getMovie= async()=>{
     let movURL=process.env.REACT_APP_SERVER;
-    let url=`${movURL}/movies?searchQuery=${this.state.city}`
-    // let url=`http://localhost:1996/movies?searchQuery=${this.state.city}`
+    // let url=`${movURL}/movies?searchQuery=${this.state.city}`
+    let url=`http://localhost:1996/movies?searchQuery=${this.state.city}`
 
     let movies=await axios.get(url);
     console.log(movies);
