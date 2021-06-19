@@ -91,7 +91,7 @@ class App extends React.Component {
     let movies=await axios.get(url);
     console.log(movies);
     this.setState({
-      movieData: movies.data[0],
+      movieData: movies.data,
 
     })
     console.log(this.state.movieData)
@@ -125,14 +125,16 @@ class App extends React.Component {
           </Card.Body>
         </Card>
         <Weather weatherData={this.state.weatherData} displayMap={this.state.displayMap} />
-        <Movies movieData={this.state.movieData}  />
+        {
+          this.state.movieData.map((idx)=>{
+            return(
+              < Movies movieData={idx}  />
+          )
+          })
+        }
+        
 
-        {/* <p>{this.state.locData.display_name}</p>
-        <p>{this.state.locData.lon}</p>
-        <p>{this.state.locData.lat}</p>
-        {this.state.displayErrMsg && this.state.errorMsg}
-        {this.state.displayMap && <img src={`https://maps.locationiq.com/v3/staticmap?key=pk.7997b5fb49bb59f5e576e07f957b02bf&center=${this.state.locData.lat},${this.state.locData.lon}&zoom=<zoom>&size=<width>x<height>&format=<format>&maptype=<MapType>&markers=icon:<icon>|<latitude>,<longitude>&markers=icon:<icon>|<latitude>,<longitude>`} alt='map' />} */}
-
+     
       </div>
 
     )
